@@ -3,32 +3,43 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
     const handleUpClick = () => {
-        let newText = text.toUpperCase();
-        setText(newText);
+        if (text.length > 0) {
+            let newText = text.toUpperCase();
+            setText(newText);
+            props.showAlert("Text has been converted to UPPERCASE!", 'success')
+        }
+        else {
+            props.showAlert("Please enter some value", 'warning')
+        }
     }
 
+
     const handleLowClick = () => {
-        let newText = text.toLowerCase();
-        setText(newText);
+        if (text.length > 0) {
+            let newText = text.toLowerCase();
+            setText(newText);
+            props.showAlert("Text has been converted to lowercase!", 'success')
+        } else {
+            props.showAlert("Please enter some value", 'warning')
+        }
+
     }
 
     const handleSpacesClick = () => {
-        let newText = text.split(/[ ]+/);
-        newText = newText.join(" ");
-        setText(newText);
-    }
-
-    const showAlert = () => {
-        alert("Please enter something");
-
+        if (text.length > 0) {
+            let newText = text.split(/[ ]+/);
+            newText = newText.join(" ");
+            setText(newText);
+            props.showAlert("Spaces has been removed from the text!", 'success')
+        } else {
+            props.showAlert("Please enter some value", 'warning')
+        }
     }
 
     const handleTitleClick = () => {
         let newText = text.split(/[ ]+/);
         newText = newText.join(" ");
-        if (newText === undefined || newText === '' || newText === ' ') {
-            showAlert();
-            newText = 'Please enter something like this';
+        if (newText.length > 0 && newText !== undefined && newText !== '' && newText !== ' ') {
             let words = newText.split(" ");
             let titleCaseArray = [];
             for (let i in words) {
@@ -37,23 +48,63 @@ export default function TextForm(props) {
             }
             let titleCase = titleCaseArray.join(' ');
             setText(titleCase);
+            props.showAlert("Text has been converted to Titlecase!", 'success')
         } else {
-            console.log(newText);
-            let words = newText.split(" ");
-            let titleCaseArray = [];
-            for (let i in words) {
-                let newWord = words[i][0].toUpperCase();
-                titleCaseArray.push(newWord + words[i].slice(1).toLowerCase());
+            if (text.length == 0) {
+                props.showAlert("Please enter some value", 'warning')
             }
-            let titleCase = titleCaseArray.join(' ');
-            setText(titleCase);
+            else if (text === undefined) {
+                props.showAlert("Please enter a valid value", 'warning')
+            }
+            else if (text === '') {
+                props.showAlert("Please enter a valid value", 'warning')
+            }
+            else if (text === ' ') {
+                props.showAlert("Please enter a valid value", 'warning')
+            }
+
         }
+        // let newText = text.split(/[ ]+/);
+        // newText = newText.join(" ");
+        // if (newText === undefined || newText === '' || newText === ' ') {
+        //     props.showAlert("Please enter some value", 'warning')
+        //     newText = 'Please enter something like this';
+        //     let words = newText.split(" ");
+        //     let titleCaseArray = [];
+        //     for (let i in words) {
+        //         let newWord = words[i][0].toUpperCase();
+        //         titleCaseArray.push(newWord + words[i].slice(1).toLowerCase());
+        //     }
+        //     let titleCase = titleCaseArray.join(' ');
+        //     setText(titleCase);
+        //     props.showAlert("Text has been converted to Titlecase!", 'success')
+
+        // } else {
+        //     let newText = text.split(/[ ]+/);
+        //     newText = newText.join(" ");
+        //     let words = newText.split(" ");
+        //     let titleCaseArray = [];
+        //     for (let i in words) {
+        //         let newWord = words[i][0].toUpperCase();
+        //         titleCaseArray.push(newWord + words[i].slice(1).toLowerCase());
+        //     }
+        //     let titleCase = titleCaseArray.join(' ');
+        //     setText(titleCase);
+        //     props.showAlert("Text has been converted to Titlecase!", 'success')
+
+        // }
 
     }
 
     const handleClearClick = () => {
-        let newText = ("");
-        setText(newText);
+        if (text.length === 0) {
+            props.showAlert("There is no text to clear", 'warning')
+        } else {
+            let newText = ("");
+            setText(newText);
+            props.showAlert("Text has been cleared!", 'success')
+        }
+
     }
 
     const handleOnChange = (event) => {
