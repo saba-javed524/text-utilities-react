@@ -2,6 +2,20 @@ import React, { useState } from 'react'
 
 
 export default function TextForm(props) {
+    let wordsCount = 0;
+    const countWords = (text) => {
+        if (text.length > 0) {
+            let newText = text.split(" ");
+            for (let i in newText) {
+                console.log(newText[i])
+                if (newText[i] !== '') {
+                    wordsCount++;
+                }
+            }
+            return wordsCount;
+        }
+    }
+
     const handleUpClick = () => {
         if (text.length > 0) {
             let newText = text.toUpperCase();
@@ -85,17 +99,17 @@ export default function TextForm(props) {
         <>
             <div>
                 <div className="mb-3" >
-                    <h2 style={{ color: props.mode === 'light' ? '#042743' : 'white' }}>{props.heading}</h2>
+                    <h2 style={{ color: props.textColor }}>{props.heading}</h2>
                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" onChange={handleOnChange} value={text} style={{ color: props.mode === 'light' ? '#042743' : 'white', backgroundColor: props.mode === 'light' ? 'white' : '#042743' }}></textarea>
-                    <button className="btn btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
-                    <button className="btn btn-primary my-3 mx-2" onClick={handleLowClick}>Convert to lowercase</button>
-                    <button className="btn btn-primary my-3 mx-2" onClick={handleTitleClick}>Convert to Title Case</button>
-                    <button className="btn btn-primary my-3 mx-2" onClick={handleSpacesClick}>Remove Extra Spaces</button>
-                    <button className="btn btn-primary my-3 mx-2" onClick={handleClearClick}>Clear Text</button>
+                    <button style={{ backgroundColor: props.buttonColor, color: props.buttonTextColor, border: props.buttonBorder }} className="btn btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to UPPERCASE</button>
+                    <button style={{ backgroundColor: props.buttonColor, color: props.buttonTextColor }} className="btn btn-primary my-3 mx-2" onClick={handleLowClick}>Convert to lowercase</button>
+                    <button style={{ backgroundColor: props.buttonColor, color: props.buttonTextColor }} className="btn btn-primary my-3 mx-2" onClick={handleTitleClick}>Convert to Title Case</button>
+                    <button style={{ backgroundColor: props.buttonColor, color: props.buttonTextColor }} className="btn btn-primary my-3 mx-2" onClick={handleSpacesClick}>Remove Extra Spaces</button>
+                    <button style={{ backgroundColor: props.buttonColor, color: props.buttonTextColor }} className="btn btn-primary my-3 mx-2" onClick={handleClearClick}>Clear Text</button>
                 </div>
-                <div className="container" style={{ color: props.mode === 'light' ? '#042743' : 'white' }}>
+                <div className="container" style={{ color: props.textColor }}>
                     <h3>Text Summary:</h3>
-                    <p>{text === '' ? 0 : text.split(" ").length} words and {text.length} characters</p>
+                    <p>{text === '' ? 0 : countWords(text)} words and {text.length} characters</p>
                     <h3>Text Preview:</h3>
                     <p>{text.length !== 0 ? text : "Please enter a text to preview!"}</p>
                     <h5>{text === "" ? "0" : 0.008 * text.split(" ").length} minutes read</h5>
