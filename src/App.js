@@ -89,9 +89,9 @@ function App() {
       <Alert alert={alert} />
       <div className="container my-3">
         <Routes>
-          <Route exact path="/" element={<TextForm textColor={textColor} buttonColor={buttonColor} buttonTextColor={buttonTextColor} buttonBorder={buttonBorder} heading="Enter the text to analyze:" mode={mode} showAlert={showAlert} />
+          <Route path="/" element={<TextForm textColor={textColor} buttonColor={buttonColor} buttonTextColor={buttonTextColor} buttonBorder={buttonBorder} heading="Text Utils - Word Counter, Character Counter, Title Case" mode={mode} showAlert={showAlert} />
           }></Route>
-          <Route exact path="/about" element={<About />}></Route>
+          <Route path="/about" element={<About mode={mode} darkGreenMode={darkGreenMode} textColor={textColor} />}></Route>
         </Routes>
       </div>
     </>
