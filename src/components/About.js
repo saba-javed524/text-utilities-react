@@ -45,7 +45,7 @@ export default function About(props) {
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                            <strong>Textutils</strong>  gives you a way to analyze your text quickly and efficiently. Be it word count, character count or
+                            Textutils gives you a way to analyze your text quickly and efficiently. Be it word count, character count or
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default function About(props) {
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                            <strong>TextUtils </strong>is a free character counter tool that provides instant character count & word count statistics for a given text. TextUtils reports the number of words and characters. Thus it is suitable for writing text with word/ character limit. </div>
+                            TextUtils is a free character counter tool that provides instant character count & word count statistics for a given text. TextUtils reports the number of words and characters. Thus it is suitable for writing text with word/ character limit. </div>
                     </div>
                 </div>
                 <div className="accordion-item" style={{ color: props.textColor, backgroundColor: 'transparent' }}>
@@ -68,7 +68,7 @@ export default function About(props) {
                     </h2>
                     <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div className="accordion-body">
-                            <strong>TextUtils </strong>This word counter software works in any web browsers such as Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to count characters in facebook, blog, books, excel document, pdf document, essays, etc.</div>
+                            This word counter software works in any web browsers such as Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to count characters in facebook, blog, books, excel document, pdf document, essays, etc.</div>
                     </div>
                 </div>
             </div>
