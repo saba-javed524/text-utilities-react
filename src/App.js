@@ -106,7 +106,8 @@ function App() {
       setDarkBlueMode("light")
       setdarkGreenMode('light')
       settextAreaBackgroundColor('white')
-      setDarkBlueModeTitle("Switch to Dark Green Mode")
+      setdarkGreenModeTitle("Switch to Dark Green Mode")
+      setDarkBlueModeTitle("Switch to Dark Blue Mode")
       document.body.style.backgroundColor = 'white'
       showAlert('Light Mode has been set', 'success')
       setbuttonColor('blue')
