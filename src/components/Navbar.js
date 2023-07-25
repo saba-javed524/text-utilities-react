@@ -1,8 +1,37 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+// import React, { useState } from 'react';
 
 export default function Navbar(props) {
+    // const [darkBlueSwitch, setdarkBlueSwitch] = useState(false);
+    // const [darkGreenSwitch, setdarkGreenSwitch] = useState(false);
+
+    // const toggleDarkBlueMode = () => {
+    //     props.darkBlueToggleMode();
+    //     setdarkBlueSwitch(true)
+    // }
+
+    //     else if (props.darkBlueMode === ' light' && props.darkGreenMode === 'dark') {
+    //         props.darkBlueToggleMode();
+    //         setdarkBlueSwitch(true)
+    //         setdarkGreenSwitch(false)
+    //     }
+    //     else if (props.darkBlueMode === ' dark' && props.darkGreenMode === 'dark') {
+    //         props.darkGreenToggleMode();
+    //         setdarkBlueSwitch(false)
+    //         setdarkGreenSwitch(true)
+    //     }
+    //     else if (props.darkBlueMode === ' dark' && props.darkGreenMode === 'light') {
+    //         props.darkBlueToggleMode();
+    //         setdarkBlueSwitch(false)
+    //         setdarkGreenSwitch(false)
+    //     }
+    // }
+    // const toggleDarkGreenMode = () => {
+    //     props.darkGreenToggleMode();
+    //     setdarkGreenSwitch(true)
+    //     setdarkBlueSwitch(false)
+    // }
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme={props.navbarMode}>
             <div className="container-fluid">
@@ -20,17 +49,14 @@ export default function Navbar(props) {
                         </li>
                     </ul>
                     <div className={`form-check form-switch mx-3 text-${props.darkGreenMode === 'light' ? 'dark' : 'light'}`} >
-                        <input className="form-check-input" style={{ backgroundColor: props.mode === 'light' ? 'white' : 'green' }} onClick={props.toggleDarkGreenMode} type="checkbox" role="switch" id="darkGreenMode" />
+                        <input checked={props.darkGreenSwitch} className="form-check-input" onClick={props.darkGreenToggleMode} type="checkbox" role="switch" id="greenSwitch" />
                         <label className="form-check-label" htmlFor="darkGreenMode" style={{ color: props.navbarMode === 'light' ? 'black' : 'white' }} >{props.darkGreenModeTitle}</label>
                     </div>
-                    <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`} >
-                        <input className="form-check-input" style={{ backgroundColor: props.mode === 'light' ? 'white' : 'blue' }} onClick={props.toggleMode} type="checkbox" role="switch" id="darkMode" />
-                        <label className="form-check-label" htmlFor="darkMode" style={{ color: props.navbarMode === 'light' ? 'black' : 'white' }} >{props.switchTitle}</label>
+
+                    <div className={`form-check form-switch text-${props.darkBlueMode === 'light' ? 'dark' : 'light'}`} >
+                        <input checked={props.darkBlueSwitch} className="form-check-input" onClick={props.darkBlueToggleMode} type="checkbox" role="switch" id="blueSwitch" />
+                        <label className="form-check-label" htmlFor="darkMode" style={{ color: props.navbarMode === 'light' ? 'black' : 'white' }} >{props.darkBlueModeTitle}</label>
                     </div>
-                    {/* <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-primary" type="submit">Search</button>
-                    </form> */}
                 </div>
             </div>
         </nav >
