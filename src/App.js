@@ -12,7 +12,7 @@ import {
 function App() {
   const [navbarMode, setnavbarMode] = useState('light')
   const [darkBlueMode, setDarkBlueMode] = useState("light")
-  const [darkBlueModeTitle, setDarkBlueModeTitle] = useState("Switch to Dark BlueMode")
+  const [darkBlueModeTitle, setDarkBlueModeTitle] = useState("Switch to Dark Blue Mode")
   const [darkGreenModeTitle, setdarkGreenModeTitle] = useState("Switch to Dark Green Mode")
   const [darkGreenMode, setdarkGreenMode] = useState('light')
   const [textAreaTextColor, settextAreaTextColor] = useState('black')
@@ -39,9 +39,12 @@ function App() {
     setdarkBlueSwitch(false)
     setdarkGreenSwitch(false)
     setdarkGreenMode('light')
+    setDarkBlueModeTitle("Switch to Dark Blue Mode")
+    setdarkGreenModeTitle("Switch to Dark Green Mode")
     setDarkBlueMode('light')
     settextAreaBackgroundColor('white')
-    settextColor('white')
+    settextAreaTextColor('black');
+    // settextColor('white')
     console.log(cls);
     document.body.classList.add('bg-' + cls);
   }
@@ -143,7 +146,7 @@ function App() {
       setbuttonColor('blue')
       setbuttonTextColor('white')
       setnavbarMode('light')
-      settextColor('white')
+      settextColor('black')
       setbuttonBorder('2px solid black')
     }
   }
