@@ -71,10 +71,9 @@ export default function TextForm(props) {
     }
 
     const handleCopyText = () => {
-        let newText = document.getElementById("exampleFormControlTextarea1");
-        newText.select();
-        navigator.clipboard.writeText(newText.value);
-        document.getSelection().removeAllRanges();
+
+        navigator.clipboard.writeText(text);
+
         props.showAlert("Text copied to clip board!", 'success')
     }
 
