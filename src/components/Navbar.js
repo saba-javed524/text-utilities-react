@@ -48,6 +48,13 @@ export default function Navbar(props) {
                             <Link className="nav-link" to="/about">{props.aboutText}</Link>
                         </li>
                     </ul>
+                    <div className="d-flex">
+                        <div className="bg-primary rounded mx-2" onClick={() => { props.togglePalette('primary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+                        <div className="bg-secondary rounded mx-2" onClick={() => { props.togglePalette('secondary') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+                        <div className="bg-success rounded mx-2" onClick={() => { props.togglePalette('success') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+                        <div className="bg-warning rounded mx-2" onClick={() => { props.togglePalette('warning') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+                        <div className="bg-danger rounded mx-2" onClick={() => { props.togglePalette('danger') }} style={{ height: '30px', width: '30px', cursor: 'pointer' }}></div>
+                    </div>
                     <div className={`form-check form-switch mx-3 text-${props.darkGreenMode === 'light' ? 'dark' : 'light'}`} >
                         <input checked={props.darkGreenSwitch} className="form-check-input" onClick={props.darkGreenToggleMode} type="checkbox" role="switch" id="greenSwitch" />
                         <label className="form-check-label" htmlFor="darkGreenMode" style={{ color: props.navbarMode === 'light' ? 'black' : 'white' }} >{props.darkGreenModeTitle}</label>
